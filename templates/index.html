@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Analysis Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Audio Analysis Dashboard</h1>
+            <p>Upload an audio file to analyze its content, mood, and more.</p>
+        </header>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <div class="upload-box">
+                <input type="file" id="audioFile" accept="audio/*">
+                <input type="text" id="customerID" placeholder="Customer ID">
+                <input type="text" id="agentID" placeholder="Agent ID">
+                <button onclick="analyzeAudio()" class="upload-button">Analyze Audio</button>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div class="loading" id="loading">
+            <div class="loader"></div>
+            <p>Analyzing... (This may take 30-60 seconds)</p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results">
+            <!-- Conversation Analysis -->
+            <div class="card full-width">
+                <h2>Conversation Analysis</h2>
+                <div id="textAnalysis" class="text-content"></div>
+            </div>
+
+            <!-- Theme Analysis -->
+            <div class="card">
+                <h2>Theme Analysis</h2>
+                <div id="theme" class="theme-content"></div>
+            </div>
+
+            <!-- Speakers Detected -->
+            <div class="card">
+                <h2>Speakers Detected</h2>
+                <canvas id="speakersChart"></canvas>
+            </div>
+
+            <!-- Mood Analysis -->
+            <div class="card">
+                <h2>Mood Analysis</h2>
+                <canvas id="moodChart"></canvas>
+            </div>
+
+            <!-- Key Topics -->
+            <div class="card">
+                <h2>Key Topics</h2>
+                <ul id="topics"></ul>
+            </div>
+
+            <!-- Background Noise -->
+            <div class="card">
+                <h2>Background Noise</h2>
+                <div id="backgroundNoise" class="text-content"></div>
+            </div>
+
+            <!-- Transcription -->
+            <div class="card full-width">
+                <h2>Transcription</h2>
+                <div id="transcription" class="text-content"></div>
+            </div>
+
+            <!-- Speaker Diarization -->
+            <div class="card full-width">
+                <h2>Speaker Diarization</h2>
+                <div id="speakerDiarization" class="text-content"></div>
+            </div>
+
+            <!-- Sentiment Analysis -->
+            <div class="card">
+                <h2>Sentiment Analysis</h2>
+                <canvas id="sentimentChart"></canvas>
+            </div>
+
+            <!-- Rate of Interest -->
+            <div class="card">
+                <h2>Rate of Interest</h2>
+                <canvas id="interestChart"></canvas>
+            </div>
+
+            <!-- Persuasion Analysis -->
+            <div class="card">
+                <h2>Persuasion Analysis</h2>
+                <canvas id="persuasionChart"></canvas>
+                <div id="persuasionSummary" class="text-content"></div>
+            </div>
+
+            <!-- Sales Conversion Probability -->
+            <div class="card">
+                <h2>Sales Conversion Probability</h2>
+                <div id="salesConversionProbability" class="text-content"></div>
+            </div>
+
+            <!-- Call Duration -->
+            <div class="card">
+                <h2>Call Duration</h2>
+                <div id="callDuration" class="text-content"></div>
+            </div>
+
+            <!-- Resolution Time -->
+            <div class="card">
+                <h2>Resolution Time</h2>
+                <div id="resolutionTime" class="text-content"></div>
+            </div>
+
+            <!-- Follow-Up Required -->
+            <div class="card">
+                <h2>Follow-Up Required</h2>
+                <div id="followUpRequired" class="text-content"></div>
+            </div>
+
+            <!-- Churn Prediction -->
+            <div class="card">
+                <h2>Churn Prediction</h2>
+                <canvas id="churnChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
